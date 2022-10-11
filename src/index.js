@@ -1,5 +1,9 @@
-import section from "./components/advContainer.js"
-import section from "./components/faciContainer.js"
+import faciContainer from "./components/faciContainer.js"
+import comContainer from "./components/comContainer.js"
+import advContainer from "./components/advContainer.js"
+
 
 let element = document.querySelector(".wrapper")
-element.append(section())
+element.append(faciContainer())
+element.append(comContainer())
+element.append(advContainer())

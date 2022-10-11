@@ -5,12 +5,13 @@
 }
 .adv-article{
 
-&__icon{
-    width: 1.5em;
-    height: auto;
+    &__icon{
+        width: 1.5em;
+        height: auto;
+    }
+    &__paragraph{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        opacity: 50%;
+    }
 }
-&__paragraph{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    opacity: 50%;
-}}

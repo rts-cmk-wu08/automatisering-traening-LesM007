@@ -1,0 +1,23 @@
+@import "../variables.scss";
+
+.article-facilities{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3em;
+}
+.faci-article{
+    &__icon{
+        width: 1.5em;
+        height: auto;
+    }
+    &__text{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        opacity: 50%;
+    }
+    &__span{
+        color: $primary-color;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+}

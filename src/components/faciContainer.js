@@ -1,7 +1,8 @@
-import {facilities.headline} from ".../data.js"
 import faciSection from "./faciSection.js"
+import {facilities} from "../data.js"
 
-let section = function(facilities) {
+let section = function() {
+//console.log(facilities)
 
 let element = document.createElement('section')
 element.classList.add("faci-section__header")
@@ -12,7 +13,7 @@ element.innerHTML =`
 
     element.append(faciSection())
 
-return element
+    return element
 }
 
 export default section
