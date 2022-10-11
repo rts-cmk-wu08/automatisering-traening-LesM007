@@ -2,7 +2,7 @@ import {sites} from "../data.js"
 import comArticle from "./comArticle.js"
 
 
-console.log(sites.places)
+//console.log(sites.places)
 
 let comSection = function() {
 
