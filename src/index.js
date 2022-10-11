@@ -5,9 +5,7 @@ import serContainer from "./components/serContainer.js"
 
 
 let element = document.querySelector(".wrapper")
+let header = document.createElement("header")
 let main = document.createElement("main")
 element.append(main)
-main.append(serContainer())
-main.append(faciContainer())
-main.append(comContainer())
-main.append(advContainer())
+main.append(serContainer(), faciContainer(), comContainer(), advContainer())

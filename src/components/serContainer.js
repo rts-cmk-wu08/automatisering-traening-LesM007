@@ -1,7 +1,7 @@
 import {services} from "../data.js"
 import serArticle from "./serArticle.js"
 
-console.log(services)
+//console.log(services)
 
 let serContainer = function() {
 
@@ -9,12 +9,11 @@ let serContainer = function() {
     element.classList.add('services-section')
 
     services.forEach(service => {
-        console.log(service)
+        //console.log(service)
         element.append(serArticle(service))
+        })
 
-    })
-
-return element
+    return element
 }
 
 export default serContainer
