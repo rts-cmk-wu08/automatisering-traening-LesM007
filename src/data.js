@@ -93,3 +93,16 @@ export let advantages = [
         text: "You don’t have to find out later or only after camenierk and trarsparent Easyamper ratains pliacas and beautias of your tariaary and halpin a fixed commission on each transaction of 5"
         },
 ]
+
+/*"comments": [
+    {
+        "id": 1,
+        "firstname": "John",
+        "lastname": "Doe",
+        "adress": "Hovedgaden 43",
+        "postalcode": "4000",
+        "email": "john@doe.com",
+        "phone": "87654321"
+        "message": "Dette er min besked til dig..."
+    }
+]*/

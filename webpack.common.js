@@ -1,11 +1,33 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const cleanWebpackPlugin = require("clean-webpack-plugin")
+
+const listOfComponents = ['index', 'update']
+
+const entry = listOfComponents.reduce((entries, componentName) => {
+	entries[componentName] = path.join(__dirname, `../src/${componentName}.js`);
+	return entries;
+}, {});
+
+const htmlGenerators = listOfComponents.reduce((entries, componentName) =>{
+    entries.push(new HtmlWebpackPlugin ({
+        template: 'template.html',
+        inject: true,
+        chunks: [componentName],
+        filename:`${componentName}.html
+        `
+    }))
+    return entries
+})
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        index: "./src/index.js",
+        update: "./src/update.js"
+    },
     output: {
-        filename: "main.js",
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "build")
     },
     devtool:"inline-source-map",                    //giver filnavn i inspektor på browser
@@ -22,7 +44,9 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             linkType: "text/css"
-        })
+        }),
+        new cleanWebpackPlugin(),
+        ...htmlGenerators,
     ],
     module: {
         rules: [
