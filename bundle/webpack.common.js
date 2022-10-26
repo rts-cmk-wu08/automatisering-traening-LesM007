@@ -29,14 +29,6 @@ module.exports = {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "build")
     },
-    devtool:"inline-source-map",                    //giver filnavn i inspektor på browser
-    devServer: {
-        open: true,                                 //åbner liveserver ved npm run dev
-        static: {
-            directory: path.join(__dirname, "build")
-        },
-        port: 3000,
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'template.html'

@@ -10,6 +10,49 @@ main.innerHTML=`
     `
 let deleteForm = main.querySelector(".deleteForm")
 
-console.log(deleteForm)
+//console.log(deleteForm)
+deleteForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    //console.log(e.target.resource.value)
+    let id = e.target.resource.value;
+    if(isNaN(id)){
+        main.innerHTML=`
+        <h1>ERROR!</h1>
+        <p>Du skal skrive et ID på en resource du vil have slettet</p>
+        <p>Klik <a href="/delete.html">her</a> for at returnere til formularen.</p>
+        `
+    } else {
+        main.innerHTML=`
+        <h1>Pas på!!</h1>
+        <p>Du er ved at slette resursen med id ${id}.</p>
+        <p>Er du sikker på, at du vil gøre dette?</p>
+        <button class="delete">SLET</button><a href="/delete.html">Annullér</a>
+        `
+        main.querySelector(".delete").addEventListener("click", () =>{
+            console.log("You are ready to delete!")
+
+            fetch(`http://localhost:4000/comments/${id}`, {
+                method: 'DELETE'
+                })
+            .then(response => {
+                if(response.status !==200){
+                    main.innerHTML =`
+                        <h1>Error!</h1>
+                        <p>Du prøver måske at slette en resurse som ikke findes</p>
+                        <p>Klik <a href="/delete.html">her</a> for at komme tilbage til delete siden.</p>
+                    `
+                } else {
+                    main.innerHTML = `
+                        <h2>Resursen med id ${id} blev slettet!</h2>
+                        <p>Du vil nu blive viderestillet til forsiden.</p>
+                    `
+                    setTimeout(() => {
+                        window.location.replace("/index.html")
+                    }, 2200)
+                 }
+            }) //console.log(response)
+        })
+    }
+})
 
 element.append(main)
