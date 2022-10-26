@@ -2,7 +2,7 @@ import faciContainer from "./components/faciContainer.js"
 import comContainer from "./components/comContainer.js"
 import advContainer from "./components/advContainer.js"
 import serContainer from "./components/serContainer.js"
-import contactForm from "./components/contactForm.js"
+import contactForm from "./components/ContactForm.js"
 
 
 let element = document.querySelector(".wrapper")

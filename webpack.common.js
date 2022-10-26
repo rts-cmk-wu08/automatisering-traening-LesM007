@@ -3,14 +3,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const cleanWebpackPlugin = require("clean-webpack-plugin")
 
-const listOfComponents = ['index', 'update']
+const listOfComponents = ['index', 'update', 'delete']
 
 const entry = listOfComponents.reduce((entries, componentName) => {
 	entries[componentName] = path.join(__dirname, `../src/${componentName}.js`);
 	return entries;
 }, {});
 
-const htmlGenerators = listOfComponents.reduce((entries, componentName) =>{
+const htmlGenerators = listOfComponents.map(componentName =>{
     entries.push(new HtmlWebpackPlugin ({
         template: 'template.html',
         inject: true,
@@ -18,7 +18,6 @@ const htmlGenerators = listOfComponents.reduce((entries, componentName) =>{
         filename:`${componentName}.html
         `
     }))
-    return entries
 })
 
 module.exports = {
